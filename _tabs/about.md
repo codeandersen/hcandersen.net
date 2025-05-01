@@ -14,16 +14,25 @@ Welcome to my corner of the web! I'm H.C Andersen, a dedicated professional spec
 
 ## Beyond Technology
 
-While technology is my profession, I believe in maintaining a well-rounded life that extends beyond the digital realm. I'm an enthusiastic mountain biker and exercise enthusiast who believes in keeping both mind and body active. You might find me:
+While technology is my profession, I believe in maintaining a well-rounded life that extends beyond the digital realm. I'm an enthusiastic mountain biker and exercise enthusiast who believes in keeping both mind and body active.
+
+![Summit selfie with a mountain cross - enjoying the outdoors](/assets/img/summit-cross.jpg)
+
+You might find me:
 
 - Building LEGO sets (because who says adults can't have fun?)
 - Embracing the Nordic spirit through winter bathing
 - Traveling and exploring new places
-- Spending quality time with friends and customers
+- Spending quality time with friends
+- Hiking in the mountains
 
 ## Making a Difference
 
-I'm a firm believer in giving back to the community. Since 2009, I've been actively involved with Viva Danmark, a Danish NGO focused on helping children in need. Through various projects, I've had the opportunity to contribute to meaningful change in young lives. Additionally, I serve as a volunteer with the Danish Red Cross, further extending my commitment to community service.
+I'm a firm believer in giving back to the community. Since 2009, I've been actively involved with Viva Danmark, a Danish NGO focused on helping children in need. Through various projects, I've had the opportunity to contribute to meaningful change in young lives.
+
+![Teaching computer skills to children through Viva Danmark's educational programs](/assets/img/viva-danmark-teaching.jpg)
+
+Additionally, I serve as a volunteer with the Danish Red Cross, further extending my commitment to community service.
 
 ## My Approach
 
