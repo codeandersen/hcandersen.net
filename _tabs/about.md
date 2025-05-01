@@ -14,7 +14,7 @@ Welcome to my corner of the web! I'm H.C Andersen, a dedicated professional spec
 
 ## Beyond Technology
 
-While technology is my profession, I believe in maintaining a well-rounded life that extends beyond the digital realm. I'm an enthusiastic mountain biker and exercise enthusiast who believes in keeping both mind and body active.
+While technology is my profession, I believe in maintaining a well-rounded life that extends beyond the digital realm. I'm an enthusiastic mountain/road bike rider and exercise enthusiast who believes in keeping both mind and body active.
 
 ![Summit selfie with a mountain cross - enjoying the outdoors](/assets/img/summit-cross.jpg)
 
