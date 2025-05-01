@@ -12,8 +12,6 @@ No, I don't write fairy tales (though I might occasionally write about some scar
 
 Welcome to my corner of the web! I'm H.C Andersen, a dedicated professional specializing in Microsoft security and automation. Through this blog, I share insights and practical solutions focused on enhancing Microsoft security postures and automating security-related tasks in the Microsoft ecosystem. My goal is to help organizations and individuals implement robust security practices while making them more efficient through automation.
 
-Connect with me on [LinkedIn](https://www.linkedin.com/in/hanschrandersen/) to learn more about my professional background and experiences.
-
 ## Beyond Technology
 
 While technology is my profession, I believe in maintaining a well-rounded life that extends beyond the digital realm. I'm an enthusiastic mountain biker and exercise enthusiast who believes in keeping both mind and body active. You might find me:
