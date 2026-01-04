@@ -43,5 +43,6 @@ On this blog, you'll find:
 - Automation techniques for Microsoft security tasks using PowerShell and Azure
 - Real-world implementations and best practices for Microsoft security
 - Tips and tricks from hands-on experience with Microsoft security tools
+- Moving to Cloud-native architectures for better security and scalability
 
 Feel free to reach out if you'd like to discuss security, automation, or any of the topics mentioned above. I'm always open to connecting with like-minded professionals and enthusiasts!
