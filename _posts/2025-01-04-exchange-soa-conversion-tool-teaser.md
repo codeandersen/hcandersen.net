@@ -3,10 +3,10 @@ title: "Exchange SOA Conversion Tool - Coming Soon"
 date: 2025-01-04 13:23:00 +0100
 categories: [Microsoft, Exchange Online]
 tags: [exchange, exchangeonline, exchangehybrid, cloudmigration, m365security, entraId, learning]
-image:
-  path: /assets/img/posts/exchange-soa-tool.png
-  alt: Exchange SOA Conversion Tool
 ---
+
+![Exchange SOA Conversion Tool](/assets/img/posts/exchange-soa-tool.png)
+_Exchange SOA Conversion Tool_
 
 Many organizations still keep an on-prem Exchange server only for recipient management, even though all mailboxes are already in Exchange Online.
 
