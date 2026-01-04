@@ -30,8 +30,6 @@ You might find me:
 
 I'm a firm believer in giving back to the community. Since 2009, I've been actively involved with Viva Danmark, a Danish NGO focused on helping children in need. Through various projects, I've had the opportunity to contribute to meaningful change in young lives.
 
-![Teaching computer skills to children through Viva Danmark's educational programs](/assets/img/viva-danmark-teaching.jpg)
-
 Additionally, I serve as a volunteer with the Danish Red Cross, further extending my commitment to community service.
 
 ## My Approach
