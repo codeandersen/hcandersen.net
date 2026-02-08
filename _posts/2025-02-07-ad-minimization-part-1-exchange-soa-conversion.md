@@ -1,5 +1,5 @@
 ---
-title: "Exchange SOA Conversion in Action: From Locked Attributes to Cloud Management"
+title: "AD Minimization Part I: Exchange SOA Conversion - From Locked Attributes to Cloud Management"
 date: 2025-02-07 17:10:00 +0100
 categories: [Microsoft, Exchange Online]
 tags: [exchange, exchangeonline, exchangehybrid, cloudmigration, powershell, automation, entraId, activedirectory, minimization]
