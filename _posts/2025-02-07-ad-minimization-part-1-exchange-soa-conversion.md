@@ -176,6 +176,7 @@ Select email addresses, then the primary SMTP address, and select the edit butto
 
 We now try to change the email address from ata@msonline.dk to Ashley.Taylor1@contoso.com and select OK and then Save.
 
+
 ![Exchange On-Premises Admin Center](/assets/img/posts/exchange-walk-through-26.png)
 
 ![Exchange On-Premises Admin Center](/assets/img/posts/exchange-walk-through-27.png)
