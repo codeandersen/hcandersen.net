@@ -46,11 +46,6 @@ Before we dive into the solution, let's talk about why you'd want to fix this:
 - No more management via on-premises Exchange servers for routine changes
 - Reduce your on-premises attack surface
 
-**Faster administration**
-- Make changes directly in Exchange Online Admin Center
-- Make changes from anywhere without connecting to corporate network
-- No waiting for hybrid sync cycles
-
 **Cleaner architecture**
 - Eliminate unnecessary hybrid complexity
 - Simplify your environment and documentation
