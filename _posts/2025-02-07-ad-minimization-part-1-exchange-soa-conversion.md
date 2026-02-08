@@ -142,6 +142,7 @@ Change the email address, select OK, and then select Save.
 ![Exchange Online Admin Center](/assets/img/posts/exchange-walk-through-20.png)
 ![Exchange Online Admin Center](/assets/img/posts/exchange-walk-through-21.png)
 
+
 ![Changing email address successfully](/assets/img/posts/exchange-walk-through-22.png)
 _No more error message - the change saves successfully_
 
@@ -166,13 +167,17 @@ Now that we've converted to cloud management, what safeguards exist if someone s
 
 Log on to Microsoft Exchange admin center on-premises.
 Select the user "Ashley Taylor" and select to edit the user.
+
 ![Exchange On-Premises Admin Center](/assets/img/posts/exchange-walk-through-24.png)
 
 Select email addresses, then the primary SMTP address, and select the edit button.
+
 ![Exchange On-Premises Admin Center](/assets/img/posts/exchange-walk-through-25.png)
 
 We now try to change the email address from ata@msonline.dk to Ashley.Taylor1@contoso.com and select OK and then Save.
+
 ![Exchange On-Premises Admin Center](/assets/img/posts/exchange-walk-through-26.png)
+
 ![Exchange On-Premises Admin Center](/assets/img/posts/exchange-walk-through-27.png)
 
 In Entra ID Connect Sync, the change is detected and blocked from synchronizing the email address change to the Exchange Online when the attribute `blockExchangeAttributesOnPremisesSync` is set to `true`.
