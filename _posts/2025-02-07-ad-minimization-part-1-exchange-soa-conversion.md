@@ -16,10 +16,12 @@ A few weeks ago, I released the Exchange SOA Conversion Tool. Today, I want to w
 Let's try to change a user's email address in the Exchange Online Admin Center and see what happens:
 
 Go to https://admin.cloud.microsoft/exchange#/mailboxes and find a user. In this example, I'll use the user "Ashley Taylor" and choose "Manage email address types".
+
 ![Exchange Online Admin Center](/assets/img/posts/exchange-walk-through-1.png)
 _Exchange Online Admin Center_
 
 Click on Edit and try to change the email address from ata to Ashley.Taylor@msonline.dk and click OK and then Save.
+
 ![Exchange Online Admin Center](/assets/img/posts/exchange-walk-through-2.png)
 ![Exchange Online Admin Center](/assets/img/posts/exchange-walk-through-3.png)
 ![Exchange Online Admin Center](/assets/img/posts/exchange-walk-through-4.png)
@@ -137,9 +139,11 @@ Go to https://admin.cloud.microsoft/exchange#/mailboxes. I'll select the user "A
 ![Exchange Online Admin Center](/assets/img/posts/exchange-walk-through-1.png)
 
 Select Edit
+
 ![Exchange Online Admin Center](/assets/img/posts/exchange-walk-through-18.png)
 
 Change the email address, select OK, and then select Save.
+
 ![Exchange Online Admin Center](/assets/img/posts/exchange-walk-through-20.png)
 ![Exchange Online Admin Center](/assets/img/posts/exchange-walk-through-21.png)
 
