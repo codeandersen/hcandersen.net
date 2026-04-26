@@ -203,7 +203,7 @@ This walkthrough focused on a single user and email address changes, but the sam
 - Bulk conversions (the tool supports multi-select)
 - Managing shared mailboxes
 
-Next in the series: Active Directory Minimization Part II, where I'll be covering the move of Group Source of Authority from on-premises to the cloud. Stay tuned!
+Next in the series: [Active Directory Minimization Part II](/posts/ad-minimization-part-2-group-soa-conversion/), where I cover the move of Group Source of Authority from on-premises to the cloud.
 
 ## Try It Yourself
 
