@@ -190,7 +190,7 @@ This walkthrough focused on converting a single group, but the same approach wor
 - Batch conversions (the tool supports multi-select)
 - Nested group hierarchies (the tool handles ordering automatically)
 
-Stay tuned for more in the Active Directory Minimization series!
+Next in the series: [AD Minimization Part III: Exchange Writeback](/posts/ad-minimization-part-3-exchange-writeback/) — closing the loop by writing Exchange Online attribute changes back to on-premises Active Directory.
 
 ## Try It Yourself
 
