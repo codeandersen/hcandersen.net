@@ -236,7 +236,7 @@ The Active Directory Minimization series continues. We've covered:
 - **Part II**: [Group SOA Conversion](/posts/ad-minimization-part-2-group-soa-conversion/) — Move group management to Entra ID
 - **Part III**: Exchange Writeback — Close the loop with automatic writeback to on-premises AD
 
-Stay tuned for more in the series!
+Next in the series: [AD Minimization Part IV: User Writeback](/posts/ad-minimization-part-4-user-writeback/) — provisioning cloud-native users to on-premises Active Directory with Entra Cloud Sync.
 
 ## Try It Yourself
 
@@ -257,6 +257,7 @@ You can find me on [Twitter/X](https://x.com/dk_hcandersen) and [LinkedIn](https
 - [Microsoft: What is Entra Cloud Sync?](https://learn.microsoft.com/en-us/entra/identity/hybrid/cloud-sync/what-is-cloud-sync)
 - [AD Minimization Part I: Exchange SOA Conversion](/posts/ad-minimization-part-1-exchange-soa-conversion/)
 - [AD Minimization Part II: Group SOA Conversion](/posts/ad-minimization-part-2-group-soa-conversion/)
+- [AD Minimization Part IV: User Writeback](/posts/ad-minimization-part-4-user-writeback/)
 
 ---
 
