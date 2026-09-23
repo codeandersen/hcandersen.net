@@ -3,6 +3,7 @@ title: "AD Minimization Part IV: User Writeback - Provisioning Cloud-Native User
 date: 2026-09-23 08:00:00 +0200
 categories: [Microsoft, Entra ID, Active Directory]
 tags: [entraId, activedirectory, cloudsync, writeback, cloudmigration, minimization, hybrididentity, provisioning]
+published: false
 ---
 
 *This is Part IV of the Active Directory Minimization series.*
