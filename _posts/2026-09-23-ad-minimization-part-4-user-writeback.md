@@ -11,22 +11,22 @@ In [Part I](/posts/ad-minimization-part-1-exchange-soa-conversion/) I converted 
 
 With Entra Cloud Sync's **Microsoft Entra ID to AD sync** configuration, you can now provision users that were *created in the cloud* down to your on-premises Active Directory. That means you can make Entra ID the place where users are born, and still keep the on-premises applications that depend on Active Directory working.
 
-## The Scenario: Users still needs access on-premises systems and need a account in the on-premises Active Directory
+## The Scenario: Users Still Need Access to On-Premises Systems and Need an Account in the On-Premises Active Directory
 
-The previous arcticles have been around Exchange and move on SOA for Exchange object attributes to Exchange Online.
-Microsoft just started rolling out user writeback to all tenant and this articles is about setting up the user writeback functionality and see a cloud user being provisioned in Active Directory.
+The previous articles have been around Exchange and moving the SOA for Exchange object attributes to Exchange Online.
+Microsoft just started rolling out user writeback to all tenants, and this article is about setting up the user writeback functionality and seeing a cloud user being provisioned in Active Directory.
 
 ## Why do you need this
 
 **Make Entra ID the source of truth for new users**
-- Create users once in Entra ID and let Cloud Sync handle the provisioning of on-premises user.
+- Create users once in Entra ID and let Cloud Sync handle the provisioning of the on-premises user.
 
 **Keep dependent systems working**
-- Cloud-created users get a real AD account with a SID, so on-premises Kerberos/NTLM apps and access to on-premises systems still works.
+- Cloud-created users get a real AD account with a SID, so on-premises Kerberos/NTLM apps and access to on-premises systems still work.
 
 **One step further toward AD minimization**
-- Combined with User SOA, Group SOA and Group Writeback, on-premises Active Directory get switch from coming from Active Directory to Entra ID to come from Entra ID to Active Directory (So kind of flipping the synchronizaton around from what we're used to today). Entra ID becomes the source of authority.
-- The end goal is to be less dependent of Active Directory and able to close Active Directory when the last dependent application is retired in on-premises.
+- Combined with User SOA, Group SOA and Group Writeback, the synchronization gets switched from going from Active Directory to Entra ID to going from Entra ID to Active Directory (so kind of flipping the synchronization around from what we're used to today). Entra ID becomes the source of authority.
+- The end goal is to be less dependent on Active Directory and be able to close Active Directory when the last dependent application on-premises is retired.
 
 ## Prerequisites: Getting Ready
 
@@ -105,7 +105,7 @@ _The configuration is now active_
 
 ## Testing: Provision on Demand
 
-Instead of waiting for for the scheduled cycle, I validated the using **Provision on demand**. Go to **Provision on demand**, pick a user from the test group (Peter Svendsen) and select **Provision**.
+Instead of waiting for the scheduled cycle, I validated the configuration using **Provision on demand**. Go to **Provision on demand**, pick a user from the test group (Peter Svendsen) and select **Provision**.
 
 ![Provision on demand](/assets/img/posts/user-writeback-walk-through-16.png)
 
@@ -138,7 +138,7 @@ _Peter Svendsen now has an on-premises SID, while still showing "On-premises syn
 
 ## The Catch: The UPN Isn't Written Back Correctly by Default
 
-If you noticed earlier on the **Account** tab in Active Directory. The user logon name ended up as `peter@world.local`, but it should have been `Peter@msonline.dk` to match the UPN in Entra ID.
+If you looked closely at the **Account** tab in Active Directory earlier, you may have noticed that the user logon name ended up as `peter@world.local`, but it should have been `Peter@msonline.dk` to match the UPN in Entra ID.
 
 ![Wrong UPN suffix in Active Directory](/assets/img/posts/user-writeback-walk-through-24.png)
 _The UPN suffix defaulted to the AD domain FQDN instead of the Entra ID UPN suffix_
