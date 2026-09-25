@@ -51,7 +51,6 @@ _The scoping group and its single cloud-native member_
 
 ## Configuring User Writeback: Step by Step
 
-### Step 1: Create a New Microsoft Entra ID to AD Sync Configuration
 
 Navigate to the [Microsoft Entra Admin Center](https://entra.microsoft.com). Go to **Identity** > **Hybrid management** > **Entra Connect** > **Cloud Sync** > **Configurations**.
 
@@ -60,34 +59,37 @@ Click **New configuration** and select **Microsoft Entra ID to AD sync**.
 ![New configuration - Microsoft Entra ID to AD sync](/assets/img/posts/user-writeback-walk-through-3.png)
 _The three configuration types: AD to Entra ID, Entra ID to AD, and the EXO to AD attribute sync we used in Part III_
 
-### Step 2: Enable Users in the Scoping Filter
-
 Select **Scoping filters** and click **Edit**. Under **User**, select **Enabled** and click **Next**.
 
 ![Scoping filters](/assets/img/posts/user-writeback-walk-through-4.png)
+
+Select **User** and select **Enabled** and click **Next**
+
 ![Enable user provisioning](/assets/img/posts/user-writeback-walk-through-5.png)
 _Enabling user objects for this configuration_
 
 Keep the defaults on the next page and select **Next**.
 
-### Step 3: Add the Group That Defines Who Gets Written Back
-
 Add the group that should be in target for on-premises writeback - in my case `sg_writeback_test` - and select **Next**.
 
 ![Select scoping group](/assets/img/posts/user-writeback-walk-through-6.png)
+
+Keep the default and select **Next**
 ![Group added to scope](/assets/img/posts/user-writeback-walk-through-7.png)
 _Only members of this group will be provisioned to Active Directory_
 
-I'm not changing anything in the following sections, so select **Next** through them.
+Select **Next**
 
 ![Keep defaults and continue](/assets/img/posts/user-writeback-walk-through-8.png)
 
-### Step 4: Review Attribute Mapping and Save
+Select **Next**
+
+![Configure group membership](/assets/img/posts/user-writeback-walk-through-9.png)
+
 
 Select **Edit attribute mapping** to review the default mappings, then select **Apply**, **Next**, and finally **Save**.
 
-![Edit attribute mapping](/assets/img/posts/user-writeback-walk-through-9.png)
-![Attribute mapping overview](/assets/img/posts/user-writeback-walk-through-10.png)
+![Edit attribute mapping](/assets/img/posts/user-writeback-walk-through-10.png)
 ![Apply mapping](/assets/img/posts/user-writeback-walk-through-11.png)
 ![Next](/assets/img/posts/user-writeback-walk-through-12.png)
 ![Save the configuration](/assets/img/posts/user-writeback-walk-through-13.png)
