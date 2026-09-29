@@ -3,27 +3,31 @@ title: "AD Minimization Part IV: User Writeback - Provisioning Cloud-Native User
 date: 2026-09-23 08:00:00 +0200
 categories: [Microsoft, Entra ID, Active Directory]
 tags: [entraId, activedirectory, cloudsync, writeback, cloudmigration, minimization, hybrididentity, provisioning]
-published: false
 ---
 
 *This is Part IV of the Active Directory Minimization series.*
 
 In [Part I](/posts/ad-minimization-part-1-exchange-soa-conversion/) I converted Exchange mailbox attributes to cloud management, in [Part II](/posts/ad-minimization-part-2-group-soa-conversion/) I moved Group Source of Authority to Entra ID, and in [Part III](/posts/ad-minimization-part-3-exchange-writeback/) I closed the loop for Exchange attributes with writeback to on-premises Active Directory. Today, we take on the next natural step: **User Writeback**.
 
-With Entra Cloud Sync's **Microsoft Entra ID to AD sync** configuration, you can now provision users that were *created in the cloud* down to your on-premises Active Directory. That means you can make Entra ID the place where users are born, and still keep the on-premises applications that depend on Active Directory working.
+With Entra Cloud Sync's **Microsoft Entra ID to AD sync** configuration, you can now provision users that were *created in the cloud* or where User Source of Authority has been moved to Entra ID, down to your on-premises Active Directory. That means you can make Entra ID the place where users are born and managed for existing users, and still keep the on-premises applications that depend on Active Directory working.
 
 ## The Scenario: Users Still Need Access to On-Premises Systems and Need an Account in the On-Premises Active Directory
 
 The previous articles have been around Exchange and moving the SOA for Exchange object attributes to Exchange Online.
 Microsoft just started rolling out user writeback to all tenants, and this article is about setting up the user writeback functionality and seeing a cloud user being provisioned in Active Directory.
 
+This article will be about writeback of Cloud Only users to Active Directory.
+
 ## Why do you need this
 
 **Make Entra ID the source of truth for new users**
 - Create users once in Entra ID and let Cloud Sync handle the provisioning of the on-premises user.
 
+**Make Entra ID the source of truth for existing users**
+- Users SOA are shifted to Entra ID and  Cloud Sync handle the updates from Entra ID to the user object in the on-premises Active Directory.
+
 **Keep dependent systems working**
-- Cloud-created users get a real AD account with a SID, so on-premises Kerberos/NTLM apps and access to on-premises systems still work.
+- Cloud-created users get a real AD account with a SID, so access to on-premises Kerberos resources still works when a passwordless method such as Windows Hello for Business with Cloud Kerberos Trust or FIDO2 keys is configured.
 
 **One step further toward AD minimization**
 - Combined with User SOA, Group SOA and Group Writeback, the synchronization gets switched from going from Active Directory to Entra ID to going from Entra ID to Active Directory (so kind of flipping the synchronization around from what we're used to today). Entra ID becomes the source of authority.
@@ -36,7 +40,7 @@ Before you start, you'll need:
 - **Microsoft Entra ID P1** licensing
 - **Hybrid Identity Administrator role** (required for configuring Entra Cloud Sync)
 - **Entra Cloud Sync Provisioning Agent** installed on a member server in your Active Directory domain (I installed mine in [Part III](/posts/ad-minimization-part-3-exchange-writeback/), so it's already in place)
-- **Provisioning agent build 1.1.1373.0 or later**
+- **Provisioning agent build 1.1.2334.0 or later**
 - A **security group in Entra ID** that contains the cloud-native users you want provisioned to AD - this is your scoping filter
 
 > **Note**: Provisioning *users* from Microsoft Entra ID to Active Directory is currently in **preview**. Provisioning *groups* is generally available. 
@@ -46,6 +50,8 @@ Before you start, you'll need:
 For this walkthrough, I created a test security group named `sg_writeback_test` in Entra ID and added a single cloud-native user, Peter Svendsen, to it. Only members of this group will be written back to Active Directory.
 
 ![Test group sg_writeback_test in Entra ID](/assets/img/posts/user-writeback-walk-through-1.png)
+
+You can see that the user object isn't on-premises synced.
 ![Cloud-native user added as a member](/assets/img/posts/user-writeback-walk-through-2.png)
 _The scoping group and its single cloud-native member_
 
@@ -59,7 +65,7 @@ Click **New configuration** and select **Microsoft Entra ID to AD sync**.
 ![New configuration - Microsoft Entra ID to AD sync](/assets/img/posts/user-writeback-walk-through-3.png)
 _The three configuration types: AD to Entra ID, Entra ID to AD, and the EXO to AD attribute sync we used in Part III_
 
-Select **Scoping filters** and click **Edit**. Under **User**, select **Enabled** and click **Next**.
+Select **Scoping filters** and click **Edit**.
 
 ![Scoping filters](/assets/img/posts/user-writeback-walk-through-4.png)
 
@@ -93,9 +99,8 @@ Select **Edit attribute mapping** to review the default mappings, then select **
 ![Apply mapping](/assets/img/posts/user-writeback-walk-through-11.png)
 ![Next](/assets/img/posts/user-writeback-walk-through-12.png)
 ![Save the configuration](/assets/img/posts/user-writeback-walk-through-13.png)
-_The default attribute mappings - we'll come back and tweak one of them shortly_
 
-### Step 5: Review and Enable
+### Review and Enable
 
 Go to the **Overview** pane and select **Review and enable**.
 
@@ -139,7 +144,7 @@ And in the Entra admin center, the cloud user now has an **On-premises security 
 ![On-premises security identifier populated in Entra ID](/assets/img/posts/user-writeback-walk-through-23.png)
 _Peter Svendsen now has an on-premises SID, while still showing "On-premises sync enabled: No"_
 
-## The Catch: The UPN Isn't Written Back Correctly by Default
+## The UPN Isn't Written Back Correctly by Default
 
 If you looked closely at the **Account** tab in Active Directory earlier, you may have noticed that the user logon name ended up as `peter@world.local`, but it should have been `Peter@msonline.dk` to match the UPN in Entra ID.
 
@@ -154,7 +159,7 @@ IIF(IsPresent([onPremisesUserPrincipalName]), [onPremisesUserPrincipalName], App
 
 Fortunately this is easy to change in the attribute mapping.
 
-### Fixing the UPN Mapping
+### The fix for the UPN Mapping
 
 Go to **Attribute mapping** in the configuration, find the `userPrincipalName` row and select the edit (pencil) button.
 
@@ -171,11 +176,12 @@ Change the **Mapping type** to **Direct**.
 Set **Source attribute** to `userPrincipalName`, set **Apply this mapping** to **Always**, and select **Apply**.
 
 ![Direct mapping from userPrincipalName, applied Always](/assets/img/posts/user-writeback-walk-through-28.png)
-_Direct mapping: the AD UPN will now mirror the Entra ID UPN, on creation and on every subsequent change_
 
-Select **Save schema** and confirm with **OK**.
+Select **Save schema**.
 
 ![Save schema](/assets/img/posts/user-writeback-walk-through-29.png)
+
+Select **OK** to update attribute mapping
 ![Confirm](/assets/img/posts/user-writeback-walk-through-30.png)
 
 > **Note**: For this to work, `msonline.dk` must be a registered UPN suffix in your Active Directory forest. If it isn't, add it in **Active Directory Domains and Trusts** first.
@@ -227,18 +233,17 @@ _Default user attribute mappings from Entra ID to Active Directory_
 | streetAddress | `Trim([streetAddress])` | Expression |
 | userPrincipalName | userPrincipalName | Direct (changed from Expression) |
 
-A couple of practical notes:
+**Notes:**
 
-- **Target OU**: `parentDistinguishedName` defaults to the `Users` container. In production you'll almost certainly want to change this expression to place cloud-provisioned users in a dedicated OU.
-- **sAMAccountName** is truncated to 15 characters from the UPN prefix. 
 - **Passwords are not written back.** Cloud Sync does not synchronize password hashes from Entra ID to Active Directory today. A user provisioned this way has an AD account, but no usable AD password until one is set on-premises or through another mechanism. Microsoft has indicated this is coming later, so keep an eye on the roadmap.
+- **Accessing on-premises Kerberos resources**: for cloud-managed users without an AD password, this requires a configured passwordless method such as Windows Hello for Business with Cloud Kerberos Trust or FIDO2 keys.
 
 ## What do you get from this?
 
 By enabling User Writeback, you've:
 
-- **Made Entra ID the birthplace of users**: Create the user once, in the cloud, and let Cloud Sync do the rest
-- **Kept on-premises access working**: Cloud-native users get a real AD account with a SID for Kerberos/NTLM-based apps and file shares
+- **Made Entra ID the SOA of users**: Create the user once, in the cloud, and let Cloud Sync do the rest
+- **Kept on-premises access working**: Cloud-native users get a real AD account with a SID for access to on-premises Kerberos resources when a passwordless method such as Windows Hello for Business with Cloud Kerberos Trust or FIDO2 keys is configured
 - **Kept UPNs consistent**: With the direct mapping, the AD UPN mirrors Entra ID, so users see one logon name everywhere
 - **Turned AD into a downstream directory**: Together with Group Writeback, on-premises Active Directory is no longer the master, it's a target
 
