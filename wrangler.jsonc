@@ -1,0 +1,8 @@
+{
+  "name": "hcandersen-net",
+  "compatibility_date": "2026-11-19",
+  "assets": {
+    "directory": "./_site",
+    "not_found_handling": "404-page"
+  }
+}
