@@ -126,7 +126,7 @@ Behind the scenes, the tool is calling the Microsoft Graph `onPremisesSyncBehavi
 
 ### What Just Happened?
 
-The group object is now and will now be disconnected from Entra ID Connect/Cloud Sync.
+The group object is now disconnected from Entra ID Connect/Cloud Sync.
 
 What has changed is that the group's properties and membership are now managed in the cloud. On-premises changes to the group are no longer synced to Entra ID.
 
@@ -176,7 +176,7 @@ _This also confirms on-premises changes are blocked from syncing_
 
 By converting groups to cloud management, you've:
 
-- Eliminated dependency on on-premises Active Directory or Exchange Serverfor routine group management
+- Eliminated dependency on on-premises Active Directory or Exchange Server for routine group management
 - Simplified your hybrid architecture
 - Improved security by reducing on-premises access requirements
 - Enabled yourself to eventually decommission on-premises Active Directory and Exchange Server infrastructure

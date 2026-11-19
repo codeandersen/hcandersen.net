@@ -114,7 +114,7 @@ Behind the scenes, the tool is setting the `IsExchangeCloudManaged` attribute to
 
 ### What Just Happened?
 
-The user object itself is still syncing from on-premises Active Directory via Entra Cloud Sync. That hasn't changed.
+The user object itself is still syncing from on-premises Active Directory via Entra Connect Sync. That hasn't changed.
 
 What has changed is that Exchange-specific attributes are now managed in the cloud. This includes:
 

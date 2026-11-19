@@ -1,5 +1,5 @@
 ---
-title: "AD Minimization Part III: Exchange Writeback -  Exchange Online Changes Writeback to On-Premises Active Directory/Exchange"
+title: "AD Minimization Part III: Exchange Writeback - Exchange Online Changes Writeback to On-Premises Active Directory/Exchange"
 date: 2026-05-19 06:00:00 +0200
 categories: [Microsoft, Exchange Online, Exchange, Active Directory]
 tags: [exchange, exchangeonline, exchangehybrid, cloudmigration, entraId, activedirectory, minimization, cloudsync, writeback]
